@@ -19,7 +19,7 @@ Paketinizi projenize eklemek için aşağıdaki adımları izleyin.
 ### 1. Composer ile Paketi Yükleyin
 
 ```bash
-composer require tolgatasci/chat-pro
+composer require tolgatasci/chat
 ```
 
 ### 2. Servis Sağlayıcısını ve Facade'i Kaydedin (Laravel 5.4 ve Öncesi için)
