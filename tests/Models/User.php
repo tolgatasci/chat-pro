@@ -1,9 +1,11 @@
-// tests/Models/User.php
-namespace Tests\Models;
+<?php
+namespace TolgaTasci\Chat\Tests\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class User extends Authenticatable
+class User extends Model
 {
-protected $guarded = [];
+    use HasFactory; // Factory kullanımı için trait ekleniyor
+    protected $guarded = [];
 }

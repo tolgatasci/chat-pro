@@ -19,6 +19,6 @@ class User extends Authenticatable
      */
     protected static function newFactory()
     {
-        return \TolgaTasci\Chat\Tests\Database\Factories\UserFactory::new();
+        return \TolgaTasci\Chat\Tests\database\factories\UserFactory::new();
     }
 }

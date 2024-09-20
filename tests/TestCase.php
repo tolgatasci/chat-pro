@@ -41,7 +41,7 @@ abstract class TestCase extends OrchestraTestCase
         $app['config']->set('database.default', 'testbench');
         $app['config']->set('database.connections.testbench', [
             'driver' => 'sqlite',
-            'database' => ':memory:',
+            'database' => 'test.sqlite3',
             'prefix' => '',
         ]);
     }

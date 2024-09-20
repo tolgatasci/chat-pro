@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use TolgaTasci\Chat\Contracts\ChatInterface;
 use TolgaTasci\Chat\Models\Conversation;
 use TolgaTasci\Chat\Tests\TestCase;
-use App\Models\User;
+use TolgaTasci\Chat\Tests\stubs\models\User;
 
 class ChatServiceTest extends TestCase
 {

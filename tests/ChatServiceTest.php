@@ -18,8 +18,7 @@ class ChatServiceTest extends TestCase
     {
         parent::setUp();
 
-        // ChatService sınıfını burada başlatıyoruz
-        $this->chatService = new ChatService();
+        $this->chatService = $this->app->make(ChatInterface::class);
 
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }

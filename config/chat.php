@@ -11,8 +11,8 @@ return [
     |
     */
 
-   // 'user_model' => App\Models\User::class,
-    'user_model' => TolgaTasci\Chat\Tests\Stubs\Models\User::class,
+    'user_model' => App\Models\User::class,
+    //'user_model' => TolgaTasci\Chat\Tests\Stubs\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------
