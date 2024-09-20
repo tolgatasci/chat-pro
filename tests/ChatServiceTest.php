@@ -37,6 +37,18 @@ class ChatServiceTest extends TestCase
     }
 
     /** @test */
+    public function it_can_create()
+    {
+        $user1 = User::factory()->create();
+        $user2 = User::factory()->create();
+
+        $conversation = $this->chatService->createConversation([$user1, $user2]);
+
+        $this->assertInstanceOf(Conversation::class, $conversation);
+        $this->assertCount(2, $conversation->participants);
+    }
+
+    /** @test */
     public function it_can_send_a_message()
     {
         Event::fake();
