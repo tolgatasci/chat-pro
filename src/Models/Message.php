@@ -23,5 +23,12 @@ class Message extends Model
         return $this->belongsTo(config('chat.user_model'), 'sender_id');
     }
 
+    public function getAttachmentUrlAttribute()
+    {
+        if ($this->attachment) {
+            return asset('storage/' . $this->attachment);
+        }
+        return null;
+    }
     // Diğer metodlar...
 }

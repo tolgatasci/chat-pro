@@ -24,7 +24,9 @@ class EloquentConversationRepository implements ConversationRepositoryInterface
 
     public function findById(int $id): ?Conversation
     {
-        return Conversation::find($id);
+        return Cache::remember("conversation_{$id}", 60, function () use ($id) {
+            return Conversation::with(['participants', 'messages'])->find($id);
+        });
     }
 
     // Diğer metodlar...

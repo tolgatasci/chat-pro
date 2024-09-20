@@ -26,10 +26,27 @@ class ChatService implements ChatInterface
         return $this->conversationRepository->create($participants, $type, $data);
     }
 
-    public function sendMessage(Conversation $conversation, $sender, string $content, string $type = 'text', array $data = []): Message
+    public function sendMessage(Conversation $conversation, $sender, string $content, string $type = 'text', array $data = [], $file = null): Message
     {
-        return $this->messageRepository->create($conversation, $sender, $content, $type, $data);
-    }
+        // Dosya varsa yükle ve yolunu sakla
+        if ($file) {
+            $filePath = $file->store('uploads/chat_files');
+            $data['attachment'] = $filePath;
+        }
 
+        // Mesajı oluştur
+        $message = $conversation->messages()->create([
+            'sender_id' => $sender->id,
+            'content' => $content,
+            'type' => $type,
+            'data' => $data,
+            'attachment' => $file ? $filePath : null, // Eklenen dosya veya resim yolu
+        ]);
+
+        // Mesaj gönderim event'ini tetikle
+        event(new \TolgaTasci\Chat\Events\MessageSent($message));
+
+        return $message;
+    }
     // Diğer metodlar...
 }

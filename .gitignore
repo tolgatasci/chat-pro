@@ -1,0 +1,12 @@
+# Composer
+/vendor/
+/composer.lock
+
+# PHPStorm / IntelliJ
+/.idea/
+/*.iml
+
+# IDE specific files
+httpRequests/
+/dataSources/
+/workspace.xml

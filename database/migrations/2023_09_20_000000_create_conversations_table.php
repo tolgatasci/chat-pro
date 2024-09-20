@@ -13,6 +13,7 @@ class CreateConversationsTable extends Migration
             $table->string('type')->default('private');
             $table->json('data')->nullable();
             $table->timestamps();
+            $table->index('type');
         });
 
         // Pivot tabloyu oluşturun (conversation_user)

@@ -9,6 +9,11 @@ class EloquentMessageRepository implements MessageRepositoryInterface
 {
     public function create(Conversation $conversation, $sender, string $content, string $type, array $data): Message
     {
+        if (request()->hasFile('attachment')) {
+            $filePath = request()->file('attachment')->store('attachments');
+            $data['attachment'] = $filePath;
+        }
+
         $message = $conversation->messages()->create([
             'sender_id' => $sender->id,
             'content' => $content,

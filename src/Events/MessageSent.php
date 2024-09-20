@@ -29,6 +29,8 @@ class MessageSent implements ShouldBroadcast
     {
         return [
             'message' => $this->message->load('sender'),
+            'read' => false,  // Mesaj okundu bilgisi ekleniyor
+            'typing' => false  // Yazıyor bilgisi ekleniyor
         ];
     }
 }
