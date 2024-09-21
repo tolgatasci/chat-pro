@@ -31,5 +31,8 @@ class EloquentMessageRepository implements MessageRepositoryInterface
         return Message::find($id);
     }
 
-    // Diğer metodlar...
+    public function getMessages(Conversation $conversation, int $perPage = 25)
+    {
+        return $conversation->messages()->paginate($perPage);
+    }
 }

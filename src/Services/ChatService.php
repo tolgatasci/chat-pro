@@ -48,5 +48,8 @@ class ChatService implements ChatInterface
 
         return $message;
     }
-    // Diğer metodlar...
+    public function getMessages(Conversation $conversation, int $perPage = 25)
+    {
+        return $this->messageRepository->getMessages($conversation, $perPage);
+    }
 }

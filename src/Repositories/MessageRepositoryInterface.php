@@ -11,5 +11,6 @@ interface MessageRepositoryInterface
 
     public function findById(int $id): ?Message;
 
-    // Diğer metodlar...
+    public function getMessages(Conversation $conversation, int $perPage = 25);
+
 }

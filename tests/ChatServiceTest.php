@@ -110,5 +110,17 @@ class ChatServiceTest extends TestCase
         $this->assertCount(3, $conversation->participants);
     }
 
-    // Diğer test metotları...
+    /** @test */
+    public function it_can_get_messages()
+    {
+        $user1 = User::factory()->create();
+        $user2 = User::factory()->create();
+
+        $conversation = $this->chatService->createConversation([$user1, $user2]);
+        $message = $this->chatService->sendMessage($conversation, $user1, 'Test mesajı');
+
+        $messages = $this->chatService->getMessages($conversation);
+
+        $this->assertTrue($messages->contains($message));
+    }
 }
