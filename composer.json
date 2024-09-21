@@ -2,11 +2,17 @@
   "name": "tolgatasci/chat",
   "description": "Laravel için gelişmiş ve güvenli bir sohbet paketi",
   "type": "library",
+  "keywords": [
+    "laravel",
+    "realtime-chat",
+    "chat",
+    "messenger"
+  ],
   "license": "MIT",
   "authors": [
     {
       "name": "Tolga Taşcı",
-      "email": "email@ornek.com"
+      "email": "tolgatasci1@gmail.com"
     }
   ],
   "require": {
@@ -39,7 +45,5 @@
         "Chat": "TolgaTasci\\Chat\\Facades\\Chat"
       }
     }
-  },
-  "minimum-stability": "stable",
-  "prefer-stable": true
+  }
 }
